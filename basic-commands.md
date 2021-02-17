@@ -87,7 +87,7 @@ kubectl describe pods <pod name> -n <namespace name>|more
 ```
 
 ### deploy any application 
-####you can replace nginx-test with the name that you want to get
+#### you can replace nginx-test with the name that you want to get
 ```
 kubectl run nginx-test --image=nginx --port=443 
 ```
