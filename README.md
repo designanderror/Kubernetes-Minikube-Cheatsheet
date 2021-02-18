@@ -88,3 +88,24 @@ minikube start --driver=docker
 ```
 docker ps
 ```
+
+## Install Kubectl
+To deploy and manage clusters, you need to install kubectl, the official command line tool for Kubernetes.
+
+#### 1. Download kubectl with the following command:
+```
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+Download Kubectl binary on Ubuntu.
+```
+#### 2. Make the binary executable by typing:
+```
+chmod +x ./kubectl
+```
+#### 3. Then, move the binary into your path with the command:
+```
+sudo mv ./kubectl /usr/local/bin/kubectl
+```
+#### 4. Verify the installation by checking the version of your kubectl instance:
+```
+kubectl version -o json
+```

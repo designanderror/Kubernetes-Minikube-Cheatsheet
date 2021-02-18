@@ -1,84 +1,139 @@
-#to start the minikube
+#### To start the minikube
+```
 minikube start 
+```
 
-#to view config details
+#### To view config details
+```
 kubectl config view
+```
 
-#to see cluster information
+#### To see cluster information
+```
 kubectl cluster-info
+```
 
-#to get the details of nodes
+#### To get the details of nodes
+```
 kubectl get nodes
+```
 
-#to see list of all minikube pods
+#### To see list of all minikube pods
+```
 kubectl get pods
+```
+OR 
+```
 kubectl get po
+```
 
-#to check the status of minikube
+#### To check the status of minikube
+```
 minikube status
+```
 
-#To stop running the single node cluster type:
+#### To stop running the single node cluster type:
+```
 minikube stop
+```
 
-#To delete the single node cluster:
+#### To delete the single node cluster:
+```
 minikube delete
+```
 
-#To find namespace
+#### To find namespace
+```
 kubectl get ns
+```
 
-#get the pods from a name space
+#### get the pods from a name space
+```
 kubectl get pods -n <namespace name>
+```
 
-#To check in which nodes the pods are running
+#### To check in which nodes the pods are running
+```
 kubectl get pods -n <namespace name> -o wide
+```
 
-#to create a namespace
+#### To create a namespace
+```
 kubectl create ns <namespace name>
+```
 
-#to navigate into another namespace
+#### To navigate into another namespace
+```
 kubectl config set-context --current --namespace=<insert-namespace-name-here>
+```
 
-#to see the details of a namespace
+#### To see the details of a namespace
+```
 kubectl describe ns <namespace name>
+```
 
-#to see the pods which are running from another namespaces
+#### To see the pods which are running from another namespaces
+```
 kubectl get pods -n <namespace name>
+```
 
-#to see the details of a pod
+#### To see the details of a pod
+```
 kubectl describe pods <pod name> -n <namespace name>
+```
+OR 
+```
 kubectl describe pods <pod name> -n <namespace name>|more
+```
 
-#deploy any application 
-#you can replace nginx-test with the name that you want to get
+### deploy any application 
+#### you can replace nginx-test with the name that you want to get
+```
 kubectl run nginx-test --image=nginx --port=443 
+```
 
-#to watch what is going on 
+#### To watch what is going on 
+```
 watch kubectl get pods
+```
 
-#to see the pods which are running in namespaces
+#### to see the pods which are running in namespaces
+```
 kubectl get pods nginx-test
+```
 
-# Jump or execute the pod
+#### Jump or execute the pod
+```
 kubectl exec -it <pod name > -- bash
+```
 
-# to get replicas count or set
+#### To get replicas count or set
+```
 kubectl get replicaset
+```
 
-# deployment of yaml file
-# -f stands for file 
+#### Deployment of yaml file
+##### -f stands for file 
+```
 kubectl apply -f deployment.yaml    
 kubectl apply -f service.yaml
 kubectl get deployment
+```
 
-#Scaling up the pods
+#### Scaling up the pods
+```
 kubectl scale --current-replicas=2 --replicas=3 deployment/<app-name>
+```
 
-#Scaling down
+#### Scaling down
+```
 kubectl scale --current-replicas=5 --replicas=3 deployment/<app-name>
+```
 
-#delete pods
+#### Delete pods
+```
 kubectl delete pod <pod name>
-
+```
 
                                                                                                                                                                                                              
 
