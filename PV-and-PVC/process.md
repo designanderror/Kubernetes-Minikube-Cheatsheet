@@ -41,9 +41,9 @@ vi pv-volume.yaml
 ```
 kubectl apply -f <file-path>
 ```
-i.e
+#### OR use command directly to apply the changes without creating any file
 ```
-kubectl apply -f pv-volume.yaml
+kubectl apply -f https://github.com/designanderror/Minikube-Cheatsheet/blob/main/PV-and-PVC/pv-volume.yaml
 ```
 #### View information about the PersistentVolume
 ```
@@ -68,7 +68,7 @@ kubectl apply -f <file-path>
 ```
 i.e
 ```
-kubectl apply -f pv-claim.yaml
+kubectl apply -f https://github.com/designanderror/Minikube-Cheatsheet/blob/main/PV-and-PVC/pv-claim.yaml
 ```
 #### Look again at PV 
 ```
@@ -103,7 +103,7 @@ kubectl apply -f <file-path>
 ```
 i.e
 ```
-kubectl apply -f pv-pod.yaml
+kubectl apply -f https://github.com/designanderror/Minikube-Cheatsheet/blob/main/PV-and-PVC/pv-pod.yaml
 ```
 #### Verify that the container in the Pod is running;
 ```
