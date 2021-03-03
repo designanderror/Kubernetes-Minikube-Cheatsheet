@@ -1,0 +1,56 @@
+# dump pod logs (stdout)
+kubectl logs <pod-name>                   
+
+# dump pod logs, with label  (stdout)
+kubectl logs -l name=<label-name>        
+
+# dump pod logs (stdout) for a previous instantiation of a container
+kubectl logs <pod-name> --previous     
+
+# dump pod container logs (stdout, multi-container case)
+kubectl logs <pod-name> -c <container-name>           
+
+# dump pod logs, with label name=<label-name> (stdout)
+kubectl logs -l name=<label-name> -c <container-name>    
+
+# dump pod container logs (stdout, multi-container case) for a previous instantiation of a container
+kubectl logs <pod-name> -c <container-name> --previous      
+
+# stream pod logs (stdout)
+kubectl logs -f <pod-name>              
+
+# stream pod container logs (stdout, multi-container case)
+kubectl logs -f <pod-name> -c <container-name>              
+
+# stream all pods logs with label name=<label-name> (stdout)
+kubectl logs -f -l name=<label-name> --all-containers    
+
+# Run pod as interactive shell
+kubectl run -i --tty busybox --image=busybox -- sh  
+
+# Run pod nginx in a specific namespace
+kubectl run nginx --image=nginx -n <namespace-name>    
+
+# Run pod nginx and write its spec into a file called pod.yaml
+kubectl run nginx --image=nginx  --dry-run=client -o yaml > pod.yaml
+
+# Attach to Running Container
+kubectl attach <pod-name> -i           
+
+# Listen on port 5000 on the local machine and forward to port 6000 on <pod-name>
+kubectl port-forward <pod-name> 5000:6000 
+
+# Run command in existing pod (1 container case)
+kubectl exec <pod-name> -- ls /             
+
+# Interactive shell access to a running pod (1 container case)
+kubectl exec --stdin --tty <pod-name> -- /bin/sh   
+
+# Run command in existing pod (multi-container case)
+kubectl exec <pod-name> -c <container-name> -- ls /         
+
+# Show metrics for a given pod and its containers
+kubectl top pod <pod-name> --containers               
+
+# Show metrics for a given pod and sort it by 'cpu' or 'memory'
+kubectl top pod <pod-name> --sort-by=cpu              

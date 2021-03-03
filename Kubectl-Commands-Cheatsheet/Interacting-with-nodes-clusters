@@ -1,0 +1,23 @@
+# Mark node as unschedulable
+kubectl cordon <node-name>         
+
+# Drain node in preparation for maintenance
+kubectl drain <node-name>                  
+
+# Mark node as schedulable
+kubectl uncordon <node-name>                   
+
+# Show metrics for a given node
+kubectl top node <node-name>                      
+
+# Display addresses of the master and services
+kubectl cluster-info                              
+
+# Dump current cluster state to stdout
+kubectl cluster-info dump            
+
+# Dump current cluster state to /path/to/cluster-state
+kubectl cluster-info dump --output-directory=/path/to/cluster-state   
+
+# If a taint with that key and effect already exists, its value is replaced as specified.
+kubectl taint nodes <node-name> dedicated=special-user:NoSchedule
