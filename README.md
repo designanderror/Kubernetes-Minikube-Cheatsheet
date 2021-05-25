@@ -1,8 +1,8 @@
-# Minikube-Cheatsheet - Kali Linux
+# Minikube-Cheatsheet - Kali / Ubuntu 
 
-This repository contains Installation of Minikube over Kali Linux and some basic commands to play around with minikube.
+This repository contains Installation of Minikube over Kali / Ubuntu and some basic commands to play around with minikube.
 
-**Make sure you have 4 processor cores 4 GB of RAM and atleast 50 GB of space allocated to Kali Linux Virtual Machine**
+**Make sure you have 4 processor cores 4 GB of RAM and atleast 25 GB of space allocated to Kali / Ubuntu  Virtual Machine**
 
 ## Creating and adding a new user
 
@@ -24,8 +24,8 @@ su - <username>
 Then enter the password
 
 
-## Installing Docker on Kali Linux
-#### 1. Update the Kali 
+## Installing Docker 
+#### 1. Update the system
 
  ``` 
  sudo apt update 
@@ -36,7 +36,7 @@ Then enter the password
 sudo apt install -y docker.io
 ```
 
-#### 3. Enabling Docker on the Kali Machine
+#### 3. Enabling Docker
 ```
 sudo systemctl enable docker --now
 ```
@@ -47,11 +47,12 @@ docker --version
 #### 5. Adding user to docker group (Optional) 
 ```
 sudo usermod -aG docker $USER
+exit
 ```
 **If you donot want to add the user to the docker Group then run the commands using sudo**
-The final thing is to logout and in again once you add the user to docker group.
 
-## Installing docker-ce on Kali Linux
+
+## Installing docker-ce on Kali Linux 
 docker-ce can be installed from Docker repository. One thing to bare in mind, Kali Linux is based on Debian, so we need to use Debian's current stable version
 
 ```
@@ -74,18 +75,39 @@ sudo apt-get update
 sudo apt install -y docker-ce docker-ce-cli containerd.io
 ```
 
-## Install Minicube
+
+## Installing docker-ce on Ubuntu
+
+```
+echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null 
+  ```
+#### Import the gpg key:
+
+```
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+```
+#### Install the latest version of docker-ce:
+
+```
+sudo apt-get update 
+sudo apt install -y docker-ce docker-ce-cli containerd.io
+```
+
+
+## Install MiniKube
 ```
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 chmod +x minikube
 mv ./minikube /usr/local/bin/minikube
 ```
-## Start minikube with Docker Driver
+#### Start minikube with Docker Driver
 ```
 minikube start --driver=docker
 ```
 
-## Verify minikube Installation
+#### Verify minikube Installation
 ```
 docker ps
 ```
