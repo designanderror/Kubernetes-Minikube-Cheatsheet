@@ -70,6 +70,7 @@ sudo apt-key fingerprint 0EBFCD88
 #### Install the latest version of docker-ce:
 
 ```
+sudo apt-get update 
 sudo apt install -y docker-ce docker-ce-cli containerd.io
 ```
 
@@ -95,7 +96,6 @@ To deploy and manage clusters, you need to install kubectl, the official command
 #### 1. Download kubectl with the following command:
 ```
 curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
-Download Kubectl binary on Ubuntu.
 ```
 #### 2. Make the binary executable by typing:
 ```
